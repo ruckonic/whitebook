@@ -1,0 +1,49 @@
+<%- include('parts/top.ejs')%>
+<main>
+    <header class="row tm-welcome-section">
+        <h2 class="col-12 text-center tm-section-title">About <%=namestore%></h2>
+        <p class="col-12 text-center"><%=desc%></p>
+    </header>
+
+    <div class="tm-container-inner tm-persons">
+        <div class="row">
+            <article class="col-lg-6">
+                <figure class="tm-person">
+                    <img style="height: 200px;" src="<%=imgfounder%>" alt="Image" class="img-fluid tm-person-img" />
+                    <figcaption class="tm-person-description">
+                        <h4 class="tm-person-name"><%=namefounder%></h4>
+                        <p class="tm-person-title">Founder and CEO</p>
+                        <p class="tm-person-about"><%=descfounder%></p>
+                    </figcaption>
+                </figure>
+           </article>
+        </div>
+    </div>
+    <div class="tm-container-inner tm-featured-image">
+        <div class="row">
+            <div class="col-12">
+                <div class="placeholder-2">
+                    <div class="parallax-window-2" data-parallax="scroll" data-image-src="<%=aboutimg%>"></div>		
+                </div>
+            </div>
+        </div>
+    </div>
+<br><br><br><br><br>
+    <div class="tm-container-inner tm-history">
+        <div class="row">
+            <div class="col-12">
+                <div class="tm-history-inner">
+                    <img src="<%=aboutimg2%>" alt="Image" class="img-fluid tm-history-img" />
+                    <div class="tm-history-text"> 
+                        <h4 class="tm-history-title">History of our store</h4>
+                        <p class="tm-mb-p"><%=historydesc%></p>
+                        <p>Thank you.</p>
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('parts/bottom.ejs')%>
+

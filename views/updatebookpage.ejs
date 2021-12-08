@@ -1,0 +1,53 @@
+<%-include('parts/top.ejs')%>
+<%-include('parts/second-nav.ejs')%>
+
+
+
+<div style="margin-top: 100px;" class="tm-container-inner-2 tm-contact-section">
+    <div class="row">
+        <div class="col-md-6">
+            <%if(book){%>
+                <input type="hidden" name="bookid" value="<%=book._id%>">
+                <form action="/update" method="POST" class="tm-contact-form" enctype="multipart/form-data">
+                    <input type="hidden" name="bookid" value="<%=book._id%>">
+                    <div class="form-group">
+                        <span style="color: #2F956D;">title</span>
+                      <input type="text" name="title" value="<%=book.title%>" class="form-control" placeholder="Book Title" required/>
+                    </div>
+    
+                    <span style="color: #2F956D;">descr</span>
+                    <div class="form-group">
+                        <textarea type="text"  name="description" class="form-control" placeholder="Book Description" required>
+                            <%=book.description%>
+                        </textarea>
+                      </div>
+                    
+                    <span style="color: #2F956D;">price</span>  
+                    <div class="form-group">
+                      <input type="number" value="<%=book.price%>" name="price" class="form-control" placeholder="price" required />
+                    </div>
+    
+                    <input name="oldimage" type="hidden"value="<%=book.image%>">
+                    <img height="50px" src="/<%=book.image%>" alt="">
+                    <div class="form-group">
+                        <p style="color: #2F956D;">Modify image</p>
+                      <input type="file" accept=".png,.jpg,.jpeg" name="image">
+                    </div>
+                    <button type="submit" class="tm-btn tm-btn-success tm-btn-right">
+                      Update book
+                    </button>
+                  </div>
+                </form>
+                <%}else{%>
+                    <h4 style="color: red;">Book not found</h4>
+                    <%}%>
+        </div>
+</div>
+
+
+
+
+
+
+
+<%-include('parts/bottom.ejs')%>

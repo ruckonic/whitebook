@@ -1,0 +1,31 @@
+<%- include('parts/top.ejs')%>
+<main>
+                <header class="row tm-welcome-section">
+                    <h2 class="col-12 text-center tm-section-title">Welcome to Simple House</h2>
+                    <p class="col-12 text-center">Total 3 HTML pages are included in this template. Header image has a parallax effect. You can feel free to download, edit and use this TemplateMo layout for your commercial or non-commercial websites.</p>
+                </header>
+                
+              
+    
+                <!-- Gallery -->
+                <div class="row tm-gallery">
+                    <!-- gallery page 1 -->
+                    <div id="tm-gallery-page-pizza" class="tm-gallery-page">
+                        
+                       <% if(book){%>
+                        <article class="col-12 tm-gallery-item">
+                            <figure>
+                                <img src="/<%=book.image%>" style="height: 300px;" alt="Image" class="img-fluid tm-gallery-img" />
+                                    <figcaption>
+                                        <h4 class="tm-gallery-title"><%=book.title%></h4>
+                                        <p class="tm-gallery-description"><%=book.description%></p>
+                                        <h3 class="tm-gallery-price">$<%=book.price%></h3>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        <%}else{%>
+                            <h2>not found</h2>
+                        <%}%>
+            </main>
+    
+          <%- include('parts/bottom.ejs')%>

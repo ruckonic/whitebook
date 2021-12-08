@@ -1,0 +1,49 @@
+<%-include('parts/top.ejs')%>
+<%-include('parts/second-nav.ejs')%>
+
+    <header class="row tm-welcome-section">
+        <h2 class="col-12 text-center tm-section-title">My all books</h2>
+    </header>
+    <div >
+        <!-- gallery page 1 -->
+        <div class="col-12 text-center">         
+                                
+                <table style="width: 100%;" class="table table-light">
+                    <thead>
+                      <tr>
+                        <td><h4>Image</h4></td>
+                        <td><h4>Title</h4></td>
+                        <td><h4>Description</h4></td>
+                        <td><h4>Price</h4></td>
+                        <td><h4>Actions</h4></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <% for(let b of books) { %>
+                      <tr>
+                        <td><a href="/book/<%=b._id%>" target="blank"><img style="height: 50px;" src="/<%=b.image%>" alt="img"></a></td>
+                        <td><%=b.title%></td>
+                        <td><%=b.description%></td>
+                        <td><%=b.price%></td>
+                        <td>
+                            <a href="/delete/<%=b._id%>">
+                                <button style="background-color: rgb(209, 65, 65);" class="tm-btn tm-btn-success tm-btn-right" type="submit">
+                                    Delete
+                                </button>
+                            </a>
+                            <a href="/update/<%=b._id%>">
+                                <button class="tm-btn tm-btn-success tm-btn-right" style="background-color:#2F956D;color:white;" type="submit">
+                                    update
+                                </button>
+                            </a>
+                        </td>
+                      </tr>
+                    <%}%>
+                    </tbody>
+                  </table>                  
+                  
+            
+        </div> <!-- gall ery page 3 -->
+    </div>
+
+<%-include('parts/bottom.ejs')%>

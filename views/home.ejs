@@ -1,0 +1,36 @@
+<%- include('parts/top.ejs')%>
+<main>
+                <header class="row tm-welcome-section">
+                    <h2 class="col-12 text-center tm-section-title">Welcome to <%=namestore%></h2>
+                    <p class="col-12 text-center"><%=desc%></p>
+                </header>
+                
+                <%-include('parts/second-nav.ejs')%>
+                <%if(msg){%>
+                   <center> <p style="color:#2F956D ;"><%=msg%></p></center>
+                <%}%>
+    
+                <!-- Gallery -->
+                <div class="row tm-gallery">
+                    <!-- gallery page 1 -->
+                    <div id="tm-gallery-page-pizza" class="tm-gallery-page">
+                        
+                        <% for(let b of books) { %>
+                            <article class="col-12 col-sm-6 tm-gallery-item">
+                                <figure>
+                                    <a href="/book/<%=b._id%>" target="blank"><img src="/<%=b.image%>" style="height: 200px;" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                                    <figcaption>
+                                        <a href="/book/b._id" target="blank"></a>
+                                        <h3 class="tm-gallery-description"><%=b.title%></h3>
+                                        <p class="tm-gallery-description"><%=b.description%></p>
+                                        <p class="tm-gallery-price">$<%=b.price%></p>
+                                    </figcaption>
+                                </figure>
+                            </article>
+
+                        <% } %>
+                    </div> <!-- gall ery page 3 -->
+                </div>
+            </main>
+            
+          <%- include('parts/bottom.ejs')%>

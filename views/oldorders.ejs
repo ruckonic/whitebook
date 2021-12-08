@@ -1,0 +1,39 @@
+<%- include('parts/top.ejs')%>
+<main>
+                
+                
+                <%-include('parts/second-nav.ejs')%>
+                <header class="row tm-welcome-section">
+                    <h2 class="col-12 text-center tm-section-title">Old orders</h2>
+                </header>
+                <!-- Gallery -->
+                <div class="row tm-gallery">
+                    <!-- gallery page 1 -->
+                    <div id="tm-gallery-page-pizza" class="tm-gallery-page">
+                        
+                        <% for(let order of orders) { %>
+                            <article class="col-12 col-sm-6 tm-gallery-item">
+                                <figure>
+                                    <%if(order.ordered){%>
+                                        <figcaption style="background-color: rgb(255, 145, 145);">
+                                            <center><h4 >Ordered</h4></center>
+                                            <p class="tm-gallery-description">name:<%=order.firstname%></p>
+                                            <p class="tm-gallery-description">lastname:<%=order.lastname%></p>
+                                            <p class="tm-gallery-description">phone number:<%=order.phonenumber%></p>
+                                            <p class="tm-gallery-description">street:<%=order.street%></p>
+                                            <p class="tm-gallery-description">city:<%=order.city%></p>
+                                            <p class="tm-gallery-description">zip code:<%=order.zipcode%></p>
+                                            <a href="<%=order.booklink%>" class="tm-paging-link" target="blank">See book ordered</a>
+                                        </figcaption>   
+                                        <%}%>
+                                            
+                                </figure>
+                            </article>
+
+                        <% } %>
+                    </div> <!-- gall ery page 3 -->
+                </div>
+               
+            </main>
+            
+          <%- include('parts/bottom.ejs')%>

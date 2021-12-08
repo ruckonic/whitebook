@@ -1,0 +1,60 @@
+<%- include('parts/top.ejs')%>
+
+<main>
+    <header class="row tm-welcome-section">
+        <h2 class="col-12 text-center tm-section-title">Order your new book</h2>
+        <p class="col-12 text-center"><%=orderdescription%></p>
+    </header>
+
+    <div class="tm-container-inner-2 tm-contact-section">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="/addorder" method="POST" class="tm-contact-form">
+                    <div class="form-group">
+                      <input type="text" name="firstname" class="form-control" placeholder="First Name" required="" />
+                    </div>
+                    
+                    <input type="hidden" name="ordered" value=Fasle>
+
+                    <div class="form-group">
+                      <input type="text" name="lastname" class="form-control" placeholder="Last Name" required="" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="phonenumber" class="form-control" placeholder="Phone Number" required="" />
+                      </div>
+                      
+                      <div class="form-group">
+                        <input type="text" name="street" class="form-control" placeholder="Street" required="" />
+                      </div>
+
+                      <div class="form-group">
+                        <input type="text" name="city" class="form-control" placeholder="city" required="" />
+                      </div>
+                      
+                      <div class="form-group">
+                        <input type="text" name="zipcode" class="form-control" placeholder="Zip Code" required="" />
+                      </div>
+
+                      <div class="form-group">
+                        <input type="text" name="booklink" class="form-control" placeholder="book Link" required="" />
+                      </div>
+                      
+            
+                    <div class="form-group tm-d-flex">
+                      <button type="submit" class="tm-btn tm-btn-success tm-btn-right">
+                        Send
+                      </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="tm-address-box">
+                    <img src="/<%=orderimg%>" alt="Image" class="img-fluid tm-history-img"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('parts/bottom.ejs')%>
