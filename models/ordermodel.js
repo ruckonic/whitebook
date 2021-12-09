@@ -14,7 +14,7 @@ var order=mongoose.model('order',{
     ordered:Boolean
 })
 
-const url='mongodb://localhost:27017/library'
+var url='mongodb+srv://whitebook:whitebook@cluster0.aja1x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 
 exports.addorder=(firstname,lastname,phonenumber,street,city,zipcode,booklink,ordered)=>{

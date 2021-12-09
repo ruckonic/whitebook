@@ -9,7 +9,7 @@ var schemauser=mongoose.Schema({
 })
 
 var user= mongoose.model('user',schemauser)
-var url='mongodb://localhost:27017/library'
+var url='mongodb+srv://whitebook:whitebook@cluster0.aja1x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 exports.adduser=(username,email,password)=>{
     return new Promise((resolve,reject)=>{
