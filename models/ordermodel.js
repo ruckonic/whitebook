@@ -14,8 +14,8 @@ var order=mongoose.model('order',{
     ordered:Boolean
 })
 
-var url='mongodb+srv://whitebook:whitebook@cluster0.aja1x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
+var url=process.env.DB || 'mongodb://localhost:27017/library'
 
 exports.addorder=(firstname,lastname,phonenumber,street,city,zipcode,booklink,ordered)=>{
     return new Promise((resolve,reject)=>{
