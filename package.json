@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node server.js"
   },
+  "engines": {
+    "node": "14.17.3"
+  },
   "author": "ayoub",
   "license": "ISC",
   "dependencies": {
