@@ -14,6 +14,16 @@ app.use(flash())
 const body=require('body-parser').urlencoded({extended:true})
 app.use(body)
 
+
+
+
+
+//
+
+//
+
+
+
 //beginSessions
 var session = require('express-session');
 var MongoDBStore = require('connect-mongodb-session')(session);
@@ -82,6 +92,6 @@ const historydesc='white book store founded in dec 2021 , specializes on selling
 
 
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
-app.listen(port,()=>console.log('server is running on port 3000'))
+app.listen(port,()=>console.log('running on port 3000'))
