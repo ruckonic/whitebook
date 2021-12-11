@@ -1,0 +1,15 @@
+const mongoose = require("mongoose")
+mongoose.Promise = global.Promise;
+
+mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://whitebook:whitebook@cluster0.aja1x.mongodb.net/library?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    // useCreateIndex: true,
+    // useFindAndModify: false
+    // useMongoClient: true
+
+}).then(() => {
+    console.log("good ho gaya");
+    ///
+
+}).catch((e) => console.log(e))
