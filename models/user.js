@@ -1,67 +1,49 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
 var schemauser = mongoose.Schema({
   _id: mongoose.ObjectId,
   username: String,
   email: String,
   password: String,
-});
+})
 
-var user = mongoose.model("user", schemauser);
+var user = mongoose.model('user', schemauser)
 
-var url = process.env.DB || "mongodb://localhost:27017/library";
 exports.adduser = (username, email, password) => {
-  return new Promise((resolve, reject) => {
-    mongoose
-      .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-      .then(() => {
-        return user.findOne({ email: email });
-      })
-      .then((email) => {
-        if (email) {
-          mongoose.disconnect();
-          reject("email exists");
-        }
-      })
-      .then(() => {
-        return user.insertMany({
-          username: username,
-          email: email,
-          password: password,
-        });
-      })
-      .then(() => {
-        mongoose.disconnect();
-        resolve("user added");
-      });
-  });
-};
+  return new Promise(async (resolve, reject) => {
+    const _user = await user.findOne({ email: email })
+
+    if (_user) {
+      return reject('User already register')
+    }
+    user.insertMany({
+      username: username,
+      email: email,
+      password: password,
+    })
+  })
+}
 
 exports.login = (email, password) => {
   return new Promise((resolve, reject) => {
-    mongoose
-      .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-      .then(() => {
-        return user.findOne({ email: email });
-      })
+    return user
+      .findOne({ email: email })
       .then((user) => {
         if (user) {
-          let test = user.password == password;
-          if (test) {
-            console.log("login");
-            mongoose.disconnect();
-            resolve(user._id);
+          let passwordIsEqual = user.password == password
+          if (passwordIsEqual) {
+            console.log('login')
+
+            resolve(user._id)
           } else {
-            mongoose.disconnect();
-            reject("wrong password!!");
+            reject('wrong password!!')
           }
         } else {
-          mongoose.disconnect();
-          reject("user not exists!!");
+          reject('user not exists!!')
         }
       })
       .catch((err) => {
-        console.log(err);
-      });
-  });
-};
+        console.log(err)
+      })
+  })
+}

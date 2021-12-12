@@ -1,12 +1,12 @@
 exports.isnotlogin = (req, res, next) => {
   if (!req.session.userId) {
-    next();
+    next()
   } else {
-    res.redirect("/");
+    res.redirect('/')
   }
-};
+}
 
 exports.islogin = (req, res, next) => {
-  if (req.session.userId) next();
-  else res.redirect("/login");
-};
+  if (req.session.userId) next()
+  else res.redirect('/login')
+}
