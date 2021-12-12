@@ -13,7 +13,7 @@ const routerOrder = require('./routes/order.routes')
 app.use(express.static(path.join(__dirname, 'assets')))
 app.use(express.static(path.join(__dirname, 'assets/uploads')))
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
 app.use(flash())
 app.set('view engine', 'ejs')

@@ -1,6 +1,5 @@
 const usercontroller = require('../controllers/registercontroller')
 const router = require('express').Router()
-const body = require('body-parser').urlencoded({ extended: true })
 const guardauth = require('./guard-auth.routes')
 
 router.get(
@@ -8,14 +7,14 @@ router.get(
   guardauth.isnotlogin,
   usercontroller.gotoregister
 )
-router.post('/register', body, usercontroller.adduser)
+router.post('/register', usercontroller.adduser)
 
 router.get(
   '/onlyadminloginonlyadmin',
   guardauth.isnotlogin,
   usercontroller.gotologin
 )
-router.post('/login', body, usercontroller.login)
+router.post('/login', usercontroller.login)
 
 router.post('/logout', usercontroller.logout)
 module.exports = router
